@@ -1,0 +1,169 @@
+<div class="container-main">
+    <div class="header-container">
+        <div class="title">Booking</div>
+        <div class="menu-container">
+            <span>
+                <a href="">Ambulance</a> /
+                <a href="">Booking List</a> /
+                <a href="">Add Booking</a>
+            </span>
+        </div>
+    </div>
+    <form [formGroup]="bookingForm" (ngSubmit)="onSubmit()" class="form-container">
+        <!-- Customer Details Section -->
+        <div class="Customer-details-container">
+            <div class="title"><span>Customer Details</span></div>
+            <div class="refresh-select-address-container">
+                <button type="button" class="icon-button refresh">
+                    <i class="fa-solid fa-rotate-right"></i>
+                </button>
+                <button type="button" class="icon-button">
+                    Select Address <i class="fa-solid fa-location-crosshairs"></i>
+                </button>
+            </div>
+        </div>
+        <div class="input-container" formGroupName="customerDetails">
+            <div class="input-div">
+                <h5>Mobile Number<i class="required">*</i></h5>
+                <div class="input-with-button">
+                    <input type="text" class="input-field" formControlName="mobileNumber">
+                    <button class="otp-button">Get OTP</button>
+                </div>
+            </div>
+            <div class="input-div">
+                <h5>Customer Name<i class="required">*</i></h5>
+                <div class="input-with-button">
+                    <input type="text" class="input-field" formControlName="customerName">
+                </div>
+            </div>
+            <div class="input-div">
+                <h5>Patient Name</h5>
+                <div class="input-with-button">
+                    <input type="text" class="input-field" formControlName="patientName">
+                </div>
+            </div>
+        </div>
+
+        <!-- Address Details Section -->
+        <div class="title"><span>Address Details</span></div>
+        <div formGroupName="addressDetails">
+            <div class="input-container">
+                <div class="input-div">
+                    <h5>Address<i class="required">*</i></h5>
+                    <div class="input-with-button">
+                        <input type="text" class="input-field" formControlName="address">
+                    </div>
+                </div>
+                <div class="input-div">
+                    <h5>Pickup Location<i class="required">*</i></h5>
+                    <div class="input-with-button">
+                        <input type="text" class="input-field" formControlName="pickupLocation">
+                    </div>
+                </div>
+                <div class="input-div">
+                    <h5>Drop Location<i class="required">*</i></h5>
+                    <div class="input-with-button">
+                        <input type="text" class="input-field" formControlName="dropLocation">
+                    </div>
+                </div>
+            </div>
+            <div class="input-container">
+                <div class="input-div">
+                    <h5>Pickup Latitude</h5>
+                    <div class="input-with-button">
+                        <input type="text" class="input-field" formControlName="pickupLatitude">
+                    </div>
+                </div>
+                <div class="input-div">
+                    <h5>Pickup Longitude</h5>
+                    <div class="input-with-button">
+                        <input type="text" class="input-field" formControlName="pickupLongitude">
+                    </div>
+                </div>
+                <div class="input-div">
+                    <h5>Drop Latitude</h5>
+                    <div class="input-with-button">
+                        <input type="text" class="input-field" formControlName="dropLatitude">
+                    </div>
+                </div>
+            </div>
+            <div class="input-container">
+                <div class="input-div">
+                    <h5>Drop Longitude</h5>
+                    <div class="input-with-button">
+                        <input type="text" class="input-field" formControlName="dropLongitude">
+                    </div>
+                </div>
+                <div class="input-div">
+                    <h5>Booking Reason</h5>
+                    <div class="input-with-button">
+                        <input type="text" class="input-field" formControlName="bookingReason">
+                    </div>
+                </div>
+                <div class="input-div">
+                    <h5>Remarks</h5>
+                    <div class="input-with-button">
+                        <input type="text" class="input-field" formControlName="remarks">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ambulance Details Section -->
+        <div class="title"><span>Ambulance Details</span></div>
+        <div class="input-container" formGroupName="ambulanceDetails">
+            <div class="input-div">
+                <h5>Ambulance</h5>
+                <div class="input-with-button">
+                    <input type="text" class="input-field" formControlName="ambulance">
+                </div>
+            </div>
+            <div class="input-div">
+                <h5>Travel Distance</h5>
+                <div class="input-with-button">
+                    <input type="text" class="input-field" formControlName="travelDistance">
+                </div>
+            </div>
+            <div class="input-div">
+                <h5>Driver Name</h5>
+                <div class="input-with-button">
+                    <input type="text" class="input-field" formControlName="driverName">
+                </div>
+            </div>
+
+        </div>
+        <div class="input-container" formGroupName="ambulanceDetails">
+            <div class="input-div">
+                <h5>Driver Mobile Number</h5>
+                <div class="input-with-button">
+                    <input type="text" class="input-field" formControlName="driverMobileNumber">
+                </div>
+            </div>
+            <div class="input-div">
+                <h5>Cancel Remarks</h5>
+                <div class="input-with-button">
+                    <input type="text" class="input-field" formControlName="cancelRemarks">
+                </div>
+            </div>
+            <div class="input-div">
+                <h5>Cancel Remarks</h5>
+                <div class="input-with-button">
+                    <input value="Save" type="submit" class="input-button">
+                    <input value="Clear" type="button" class="input-button" (click)="onClear()">
+                    <input value="Close" type="button" class="input-button" (click)="onClose()">
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <!-- <div class="input-container">
+            <div class="input-div">
+                <div class="input-with-button">
+                    <input value="Save" type="submit" class="input-button">
+                    <input value="Clear" type="button" class="input-button" (click)="onClear()">
+                    <input value="Close" type="button" class="input-button" (click)="onClose()">
+                </div>
+            </div>
+        </div> -->
+    </form>
+</div>
